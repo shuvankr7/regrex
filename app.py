@@ -4,7 +4,7 @@ import streamlit as st
 from urllib.parse import urlparse
 
 # Load merchant dataset
-with open('final_merchant_dataset.json', 'r') as file:
+with open('c:\\Users\\shuva\\OneDrive\\Desktop\\qa\\final_merchant_dataset.json', 'r') as file:
     merchant_dataset = json.load(file)
 
 def extract_transaction_info(message):
@@ -22,6 +22,9 @@ def extract_transaction_info(message):
     debit_keywords = ['debited', 'withdrawn', 'spent', 'paid', 'deducted', 'charged', 'purchase', 'payment', 'transfer','debit','purchase']
     credit_keywords = ['credited', 'deposited', 'received', 'added', 'refund','reversed','refunded']
     transaction_keywords = debit_keywords + credit_keywords
+
+    # Define non-transactional keywords
+    non_transactional_keywords = ['will', 'otp', 'password', 'login', 'verification', 'code', 'alert', 'update']
     
     # Define regex patterns
     # Amount pattern: matches optional currency symbols (Rs., $, INR) and numbers (with commas or decimals)
@@ -45,6 +48,11 @@ def extract_transaction_info(message):
     
     # Convert message to lowercase for case-insensitive keyword checking
     message_lower = message.lower()
+
+    # Check if the message contains any non-transactional keyword
+    if any(keyword in message_lower for keyword in non_transactional_keywords):
+        st.write("Non-transactional message.")
+        return
     
     # Check if any transaction keyword is present
     has_keyword = any(keyword in message_lower for keyword in transaction_keywords)
