@@ -103,7 +103,7 @@ def extract_transaction_info(message):
 
         # Check if the merchant is in the dataset
         tag = None
-        merchant=merchant.split()[0]
+        # merchant=merchant.split()[0]
         if merchant:
             for key, merchants in merchant_dataset.items():
                 if merchant in merchants:
