@@ -82,10 +82,10 @@ def extract_transaction_info(message):
         for preposition, entity in entities:
             prep = preposition.lower()
             # Merchant typically follows 'at', 'from', 'to'
-            if prep in ['at', 'from', 'to']:
+            if prep in ['at', 'to']:
                 potential_merchants.append(entity)
             # Bank/UPI/Card typically follows 'via', 'through', 'with'
-            elif prep in ['via', 'through', 'with','Your'] and bank_upi_card is None:
+            elif prep in ['via', 'through', 'with','Your','from'] and bank_upi_card is None:
                 bank_upi_card = entity
         
         # Use the provided regex pattern to find the merchant name
