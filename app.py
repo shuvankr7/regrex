@@ -19,7 +19,7 @@ def extract_transaction_info(message):
     message = url_pattern.sub(lambda match: urlparse(match.group(0)).netloc, message)
     
     # Define transaction keywords
-    debit_keywords = ['debited', 'withdrawn', 'spent', 'paid', 'deducted', 'charged', 'purchase', 'payment', 'transfer','debit','purchase']
+    debit_keywords = ['debited', 'withdrawn', 'spent', 'paid', 'deducted', 'charged', 'purchase', 'payment', 'transfer','debit','purchase','sent']
     credit_keywords = ['credited', 'deposited', 'received', 'added', 'refund','reversed','refunded']
     transaction_keywords = debit_keywords + credit_keywords
 
