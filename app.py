@@ -6,7 +6,7 @@ import warnings
 import time
 import nltk
 from nltk.corpus import stopwords
-import Levenshtein
+
 
 
 # Download NLTK stopwords if not already downloaded
