@@ -94,7 +94,7 @@ def extract_transaction_info(message):
             merchant = merchant_match.group(1).lower().strip()
         else:
             # Take the last potential merchant as the merchant name
-            merchant = potential_merchants[0].split()[0].lower().casefold().strip() if potential_merchants else None
+            merchant = potential_merchants[0].split()[:3].lower().casefold().strip() if potential_merchants else None
 
         # Use the provided regex pattern to find the card, bank, or UPI
         card_bank_upi_match = card_bank_upi_pattern.search(message)
