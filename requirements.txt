@@ -1,3 +1,2 @@
-Levenshtein
 nltk
 fuzzywuzzy 
