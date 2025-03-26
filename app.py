@@ -4,7 +4,7 @@ import streamlit as st
 from urllib.parse import urlparse
 
 # Load merchant dataset
-with open('c:\\Users\\shuva\\OneDrive\\Desktop\\qa\\final_merchant_dataset.json', 'r') as file:
+with open('final_merchant_dataset.json', 'r') as file:
     merchant_dataset = json.load(file)
 
 def extract_transaction_info(message):
